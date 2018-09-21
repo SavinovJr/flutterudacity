@@ -91,7 +91,7 @@ class _CategoryRouteState extends State<CategoryRoute> {
     // Dart Usage, see https://www.dartlang.org/guides/language/effective-dart/usage
     final json = DefaultAssetBundle.of(context)
         .loadString('assets/data/regular_units.json');
-    final jsonData =
+    final jsonData = JsonDecoder().convert(await json);
     if (jsonData is! Map) {
       throw ('Data retrieved from API is not a Map');
     }
